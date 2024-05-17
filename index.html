@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(202, 244, 248);
+        display: flex;
+        justify-content: center;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 720px;
+        height: auto;
+        border: 10px double;
+        margin-top: 100px;
+        justify-content: center;
+         gap: 16px; /* Space between blocks */
+    padding: 16px;
+       
+    }
+
+    .block-item {
+        border: 2px solid rgb(44, 142, 2);
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+         border-radius: 10px;
+         padding: 16px;
+    box-sizing: border-box;
+    flex: 1 1 calc(33.333% - 32px); /* Three blocks per row with space */
+    min-width: 200px;
+         
+        
+    }
+    div{
+        color: rgb(199, 33, 75);
+        font-size: 25px;
+        font-weight: bold;
+        
+    }
+    .responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+    .title{
+        border-bottom: 3px solid rgb(44, 142, 2);;
+        background-color: rgb(90, 219, 242);
+        color: rgb(196, 5, 21);
+        border-radius: 10px;
+         font-size: 1.2em;
+    margin-bottom: 8px;
+    }
+    .des{
+        color: rgba(213, 0, 0, 0.846);
+         font-size: 1em;
+    margin-top: 8px;
+    }
+    @media (max-width:740px) {
+      /* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .block-item {
+        flex: 1 1 calc(50% - 32px); /* Two blocks per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .block-item {
+        flex: 1 1 100%; /* One block per row */
+    }
+}
+    }
+</style>
+
+<body>
+
+    <script>
+        const data = [
+            {
+                title: "07:30",
+                image: "img/1.png",
+                description: "Paris",
+                color: '#5dadf9'    
+            },
+            {
+                title: "14:00",
+                image: "img/2.png",
+                description: "Karakol",
+                color: '#5dadf9'
+            },
+            {
+                title: "Turism",
+                image: "img/3.jpg",
+                description: "7 day",
+                color: '#5dadf9'
+            },
+            {
+                title: "Jeeping",
+                image: "img/4.png",
+                description: "Mountain",
+                color:'#70f58b'
+            },
+            {
+                title: "Horse riding",
+                image: "img/5.png",
+                description: "1 hour",
+                color:'#70f58b'
+            },
+            {
+                title: "Yachting",
+                image: "img/6.png",
+                description: "1.5 hour",
+                color:'#70f58b'
+            },
+            {
+                title: "Morning",
+                image: "img/7.png",
+                description: "Koffee",
+                color: '#f8ef87'
+                
+            },
+            {
+                title: "Afternoon",
+                image: "img/8.webp",
+                description: "Paraglider",
+                color: '#f8ef87'
+            },
+            {
+                title: "Night",
+                image: "img/9.png",
+                description: "Beshbarmak",
+                color: '#f8ef87'
+            },
+        ]
+
+        let container = document.createElement('div');
+        container.classList.add('container');
+        
+
+        const renderBlock = () => {
+            let fragment = new DocumentFragment();
+            
+            data.map((item, id) => {
+                let block = document.createElement("div");
+                block.className = 'block-item'
+                block.classList.add('block')
+                block.style.borderColor=item.color
+                block.style.backgroundColor=item.color
+         
+               
+                block.innerHTML = `
+            <div class="title">${item.title}</div>
+            <img width="100rem" src="${item.image}"style="border: 2px solid ${item.color};">
+            <div class="des">${item.description}</div>`;
+                fragment.append(block);
+            });
+            return fragment;
+        };
+        container.append(renderBlock());
+        document.body.append(container);
+    </script>
+</body>
+
+</html>
