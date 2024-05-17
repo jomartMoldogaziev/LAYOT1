@@ -20,7 +20,7 @@
         border: 10px double;
         margin-top: 100px;
         justify-content: center;
-         gap: 16px; /* Space between blocks */
+         gap: 16px;
     padding: 16px;
        
     }
@@ -33,7 +33,7 @@
          border-radius: 10px;
          padding: 16px;
     box-sizing: border-box;
-    flex: 1 1 calc(33.333% - 32px); /* Three blocks per row with space */
+    flex: 1 1 calc(33.333% - 32px);
     min-width: 200px;
          
         
@@ -63,16 +63,16 @@
     margin-top: 8px;
     }
     @media (max-width:740px) {
-      /* Media queries for responsiveness */
+     
 @media (max-width: 1024px) {
     .block-item {
-        flex: 1 1 calc(50% - 32px); /* Two blocks per row */
+        flex: 1 1 calc(50% - 32px);
     }
 }
 
 @media (max-width: 768px) {
     .block-item {
-        flex: 1 1 100%; /* One block per row */
+        flex: 1 1 100%; 
     }
 }
     }
